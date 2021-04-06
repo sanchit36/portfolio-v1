@@ -1,27 +1,22 @@
 import styled from "styled-components";
-import { BORDERRADIUS, DARKBG, PRIMARY, SECONDARY } from "../../globalStyles";
-
-export const CardContainer = styled.div`
-  @media screen and (min-width: 768px) {
-    display: grid;
-    grid-template-areas:
-      "header img"
-      "card img"
-      "footer img";
-    grid-template-columns: 2fr 3fr;
-  }
-`;
+import { BLACK, BORDERRADIUS, DARKBG } from "../../globalStyles";
 
 export const CardHeaderContainer = styled.div`
-  margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   @media screen and (min-width: 768px) {
     grid-area: header;
+    align-self: flex-end;
   }
 `;
 
 export const CardMainContainer = styled.div`
   p {
     max-width: 55ch;
+  }
+
+  > :last-child {
+    margin: 0;
   }
 
   @media screen and (min-width: 768px) {
@@ -32,39 +27,76 @@ export const CardMainContainer = styled.div`
     grid-row: 2;
     position: relative;
     z-index: 2;
-    width: calc(100% + 4rem);
+    width: calc(100% + 30rem);
+    box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.35);
+
+    :hover {
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35),
+        1px 2px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    width: calc(100% + 15rem);
   }
 `;
 
 export const CardFooterContainer = styled.div`
   margin-top: 3rem;
 
-  & a {
-    color: ${PRIMARY};
-    display: inline-block;
-    font-size: 3.2rem;
-    margin-right: 3.6rem;
-    :hover {
-      color: ${SECONDARY};
-    }
-  }
   @media screen and (min-width: 768px) {
     grid-area: footer;
+    align-self: flex-start;
   }
 `;
 
 export const CardImageContainer = styled.div`
-  display: none;
+  background-color: ${BLACK};
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.35);
+  transition: all 300ms ease-in-out;
+
+  :hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35),
+      1px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0.1;
+  }
 
   @media screen and (min-width: 768px) {
     grid-area: img;
-    display: block;
+  }
+`;
 
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+export const CardContainer = styled.div`
+  position: relative;
+  margin-bottom: 10rem;
+  padding: 5rem 3rem;
+
+  @media screen and (min-width: 768px) {
+    :hover ${CardImageContainer} img {
+      opacity: 1;
     }
+
+    padding: 0;
+    display: grid;
+    grid-template-areas:
+      "header img"
+      "card img"
+      "footer img";
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
   }
 `;

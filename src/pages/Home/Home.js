@@ -1,6 +1,7 @@
 import React from "react";
 import About from "../../components/sections/About/About";
 import Banner from "../../components/sections/Banner/Banner";
+import ProjectList from "../../components/sections/ProjectList/ProjectList";
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
 
       <About />
 
-      {/* ProjectList */}
+      <ProjectList />
     </React.Fragment>
   );
 };
