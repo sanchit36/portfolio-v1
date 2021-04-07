@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BLACK, BORDERRADIUS, DARKBG } from "../../globalStyles";
+import styled, { css } from "styled-components";
+import { BLACK, BORDERRADIUS, DARKBG, TRANSITION } from "../../globalStyles";
 
 export const CardHeaderContainer = styled.div`
   margin-top: 3rem;
@@ -59,7 +59,7 @@ export const CardImageContainer = styled.div`
   right: 0;
   z-index: -1;
   box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.35);
-  transition: all 300ms ease-in-out;
+  transition: box-shadow ${TRANSITION};
 
   :hover {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35),
@@ -72,7 +72,8 @@ export const CardImageContainer = styled.div`
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    opacity: 0.1;
+    opacity: 0.25;
+    transition: opacity ${TRANSITION};
   }
 
   @media screen and (min-width: 768px) {
@@ -84,12 +85,10 @@ export const CardContainer = styled.div`
   position: relative;
   margin-bottom: 10rem;
   padding: 5rem 3rem;
-
   @media screen and (min-width: 768px) {
     :hover ${CardImageContainer} img {
       opacity: 1;
     }
-
     padding: 0;
     display: grid;
     grid-template-areas:
@@ -98,5 +97,30 @@ export const CardContainer = styled.div`
       "footer img";
     grid-template-columns: 1fr 2fr;
     align-items: center;
+    ${(props) => props.inverted && invertedCardContainer}
+  }
+`;
+
+const invertedCardContainer = css`
+  grid-template-areas:
+    "img header"
+    "img card"
+    "img footer";
+  grid-template-columns: 2fr 1fr;
+  text-align: right;
+
+  & ${CardFooterContainer} {
+    margin-left: 3rem;
+    justify-self: end;
+  }
+
+  & ${CardMainContainer} {
+    @media screen and (min-width: 768px) {
+      left: -30rem;
+    }
+
+    @media screen and (min-width: 1000px) {
+      left: -15rem;
+    }
   }
 `;

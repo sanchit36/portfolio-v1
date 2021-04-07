@@ -1,10 +1,10 @@
 import React from "react";
 import { CardContainer } from "./Card.styles";
 
-const Card = ({ children }) => {
+const Card = ({ children, ...rest }) => {
   return (
     <React.Fragment>
-      <CardContainer>{children}</CardContainer>
+      <CardContainer {...rest}>{children}</CardContainer>
     </React.Fragment>
   );
 };

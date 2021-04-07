@@ -15,6 +15,7 @@ export const SECONDARYFF = "'Nunito', sans-serif";
 export const MAXWIDTH = "1200px";
 export const SPACING = "0.1rem";
 export const BORDERRADIUS = ".5rem";
+export const TRANSITION = "300ms ease-in-out";
 
 const GlobalStyles = createGlobalStyle`
   *,
