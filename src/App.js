@@ -1,13 +1,15 @@
 import React from "react";
+import Footer from "./components/Footer/Footer";
 import GlobalStyles from "./globalStyles";
 import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <GlobalStyles />
       <Home />
-    </div>
+      <Footer />
+    </React.Fragment>
   );
 }
 

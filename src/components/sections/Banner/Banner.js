@@ -23,10 +23,9 @@ const Banner = () => {
             />
           </SubTitle>
           <Content>
-            I'm a India-based web developer who loves to build and design
-            elegant user experiences. I'm a India-based web developer who loves
-            to build and design elegant user experiences. I'm a India-based web
-            developer who loves to build and design elegant user experiences.
+            I'm an India-based web developer who loves to build and design
+            elegant user experiences. currently pursuing my bachelor's degree in
+            CSE and learning something new daily.
           </Content>
           <ButtonGroup>
             <ButtonLink href="#work">My Work</ButtonLink>

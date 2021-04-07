@@ -2,9 +2,10 @@ import React from "react";
 import { Container, Section } from "../../../globalStyles";
 import { ButtonLink } from "../../Button/Button.styles";
 import Heading from "../../Heading/Heading";
-import { Content, Flex, ImageContainer, LinksContainer } from "./About.styles";
+import { Content, Flex, ImageContainer } from "./About.styles";
 
 import Profile from "../../../images/profile.jpg";
+import Links from "../../Links/Links";
 
 const About = () => {
   return (
@@ -26,20 +27,8 @@ const About = () => {
                 porro accusantium odio facilis consequuntur hic inventore autem,
                 quidem nemo officia. Possimus, tempora?
               </p>
-              <br />
-              <br />
-              <ButtonLink>Resume</ButtonLink>
-              <LinksContainer>
-                <a href=".">
-                  <i className="fab fa-github"></i>
-                </a>
-                <a href=".">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a href=".">
-                  <i className="fab fa-instagram"></i>
-                </a>
-              </LinksContainer>
+              <ButtonLink style={{ marginTop: "3rem" }}>Resume</ButtonLink>
+              <Links />
             </Content>
             <ImageContainer>
               <img src={Profile} alt="" />

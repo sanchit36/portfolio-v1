@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { PRIMARY, SECONDARY } from "../../../globalStyles";
+import { BORDERRADIUS } from "../../../globalStyles";
 
 export const Flex = styled.div`
   display: flex;
   justify-content: center;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 5rem;
   text-align: justify;
 `;
@@ -18,40 +18,20 @@ export const Content = styled.div`
   max-width: 65ch;
 `;
 
-export const LinksContainer = styled.div`
-  margin-top: 4rem;
-  position: relative;
-
-  & a {
-    color: ${PRIMARY};
-    display: inline-block;
-    font-size: 2.6rem;
-    margin-right: 4rem;
-    :hover {
-      color: ${SECONDARY};
-    }
-  }
-`;
-
 export const ImageContainer = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
+
   flex: 1;
-  padding-top: 55.25%;
   width: 100%;
-  min-width: 250px;
-  max-width: 400px;
-  background-color: red;
-  position: relative;
+  min-width: 150px;
+  max-width: 300px;
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     object-position: top center;
+    border-radius: ${BORDERRADIUS};
   }
 `;

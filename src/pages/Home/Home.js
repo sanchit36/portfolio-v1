@@ -17,7 +17,8 @@ const Home = () => {
       .then((ref) => {
         setProjects(ref.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
         setLoading(false);
-      });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (

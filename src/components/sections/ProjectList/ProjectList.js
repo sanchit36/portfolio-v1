@@ -49,7 +49,7 @@ const ProjectList = ({ loading, projects }) => {
                   </CardMain>
                   <CardFooter>
                     <TechContainer>
-                      {technologies.map((val, ind) => (
+                      {technologies?.map((val, ind) => (
                         <p key={ind}>{val}</p>
                       ))}
                     </TechContainer>

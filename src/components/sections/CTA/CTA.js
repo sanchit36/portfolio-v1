@@ -8,7 +8,7 @@ const CTA = () => {
       <Section style={{ backgroundColor: DARKBG }}>
         <Container style={{ textAlign: "center" }}>
           <h2 style={{ marginBottom: "5rem" }}>Have something in mind?</h2>
-          <ButtonLink>Lets Talk</ButtonLink>
+          <ButtonLink>Get in Touch</ButtonLink>
         </Container>
       </Section>
     </React.Fragment>
