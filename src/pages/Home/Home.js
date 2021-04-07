@@ -1,17 +1,23 @@
-import axios from "axios";
 import React, { useState } from "react";
 import About from "../../components/sections/About/About";
 import Banner from "../../components/sections/Banner/Banner";
+import CTA from "../../components/sections/CTA/CTA";
 import ProjectList from "../../components/sections/ProjectList/ProjectList";
+import { db } from "../../firebase";
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useState(() => {
-    axios.get("http://127.0.0.1:8000/api/projects").then((res) => {
-      setProjects(res.data);
-      console.log(res.data);
-    });
+    setLoading(true);
+    db.collection("projects")
+      .orderBy("order", "asc")
+      .get()
+      .then((ref) => {
+        setProjects(ref.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -20,7 +26,9 @@ const Home = () => {
 
       <About />
 
-      <ProjectList projects={projects} />
+      <ProjectList loading={loading} projects={projects} />
+
+      <CTA />
     </React.Fragment>
   );
 };

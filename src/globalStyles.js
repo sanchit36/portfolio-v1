@@ -28,16 +28,19 @@ const GlobalStyles = createGlobalStyle`
 
   html{
     font-size: 10px;
+    scroll-behavior: smooth;
   }
 
   body{
     max-width: 100vw;
     min-height: 100vh;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     font-family: ${SECONDARYFF};
     background-color: ${MEDBG};
     color: ${TEXT};
-    line-height: 1.2;
-    font-size: 1rem;
+    line-height: 1.3;
+    font-size: 1.6rem;
 
     #root{
       max-width: 100vw;
@@ -130,7 +133,7 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  padding: 5rem 0;
+  padding: 7.5rem 0;
 `;
 
 export const SectionCenter = styled(Section)`

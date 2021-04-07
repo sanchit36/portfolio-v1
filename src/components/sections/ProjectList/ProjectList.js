@@ -11,59 +11,63 @@ import {
   ParaPrimary,
   TechContainer,
 } from "./ProjectList.styles";
+import Loader from "../../Loader";
 
-const ProjectList = ({ projects }) => {
+const ProjectList = ({ loading, projects }) => {
   return (
     <React.Fragment>
-      <Section>
+      <Section id="work">
         <Container>
           <Heading>Projects</Heading>
-          {projects.map(
-            (
-              {
-                id,
-                subtitle,
-                title,
-                summary,
-                technologies,
-                image,
-                slug,
-                code_link,
-                live_link,
-              },
-              index
-            ) => (
-              <Card key={id} inverted={index % 2}>
-                <CardHeader>
-                  <ParaPrimary>{subtitle}</ParaPrimary>
-                  <h3>{title.toUpperCase()}</h3>
-                </CardHeader>
-                <CardImage>
-                  <img src={image} alt="profile" />
-                </CardImage>
-                <CardMain>
-                  <p>{summary}</p>
-                </CardMain>
-                <CardFooter>
-                  <TechContainer>
-                    {technologies.map(({ id, name }) => (
-                      <p key={id}>{name}</p>
-                    ))}
-                  </TechContainer>
-                  <IconsContainer>
-                    {code_link && (
-                      <a href={code_link} target="_blank" rel="noreferrer">
-                        <i className="fab fa-github" />
-                      </a>
-                    )}
-                    {live_link && (
-                      <a href={live_link} target="_blank" rel="noreferrer">
-                        <i className="fas fa-external-link-alt" />
-                      </a>
-                    )}
-                  </IconsContainer>
-                </CardFooter>
-              </Card>
+          {loading ? (
+            <Loader />
+          ) : (
+            projects?.map(
+              (
+                {
+                  id,
+                  subtitle,
+                  title,
+                  summary,
+                  technologies,
+                  image,
+                  code_link,
+                  live_link,
+                },
+                index
+              ) => (
+                <Card key={id} inverted={index % 2}>
+                  <CardHeader>
+                    <ParaPrimary>{subtitle}</ParaPrimary>
+                    <h3>{title.toUpperCase()}</h3>
+                  </CardHeader>
+                  <CardImage>
+                    <img src={image} alt="profile" />
+                  </CardImage>
+                  <CardMain>
+                    <p>{summary}</p>
+                  </CardMain>
+                  <CardFooter>
+                    <TechContainer>
+                      {technologies.map((val, ind) => (
+                        <p key={ind}>{val}</p>
+                      ))}
+                    </TechContainer>
+                    <IconsContainer>
+                      {code_link && (
+                        <a href={code_link} target="_blank" rel="noreferrer">
+                          <i className="fab fa-github" />
+                        </a>
+                      )}
+                      {live_link && (
+                        <a href={live_link} target="_blank" rel="noreferrer">
+                          <i className="fas fa-external-link-alt" />
+                        </a>
+                      )}
+                    </IconsContainer>
+                  </CardFooter>
+                </Card>
+              )
             )
           )}
         </Container>
