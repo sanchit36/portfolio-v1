@@ -1,19 +1,15 @@
 import React from "react";
 import { LinksContainer } from "./Links.styles";
 
-const Links = () => {
+const Links = ({ data }) => {
   return (
     <React.Fragment>
       <LinksContainer>
-        <a href=".">
-          <i className="fab fa-github"></i>
-        </a>
-        <a href=".">
-          <i className="fab fa-linkedin"></i>
-        </a>
-        <a href=".">
-          <i className="fab fa-instagram"></i>
-        </a>
+        {data.map(({ id, icon, url }) => (
+          <a key={id} target="blank" href={url}>
+            <i className={`fab ${icon}`} />
+          </a>
+        ))}
       </LinksContainer>
     </React.Fragment>
   );

@@ -9,9 +9,13 @@ export const LinksContainer = styled.div`
     color: ${PRIMARY};
     display: inline-block;
     font-size: 2.6rem;
-    margin-right: 4rem;
+
     :hover {
       color: ${SECONDARY};
     }
+  }
+
+  & a + a {
+    margin-left: 4rem;
   }
 `;

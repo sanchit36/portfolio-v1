@@ -45,6 +45,12 @@ const GlobalStyles = createGlobalStyle`
     #root{
       max-width: 100vw;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+
+      main {
+        flex: 1;
+      }
     }
   }
 
@@ -85,7 +91,7 @@ const GlobalStyles = createGlobalStyle`
 
   p {
     font-size: 1.8rem;
-    margin-bottom: 1.25rem;
+    margin: 1rem 0;
   }
 
   @media screen and (min-width: 768px) {

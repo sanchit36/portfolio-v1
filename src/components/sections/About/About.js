@@ -6,6 +6,7 @@ import { Content, Flex, ImageContainer } from "./About.styles";
 
 import Profile from "../../../images/profile.jpg";
 import Links from "../../Links/Links";
+import { resume, socialLinks } from "../../../data";
 
 const About = () => {
   return (
@@ -15,20 +16,33 @@ const About = () => {
           <Heading>About</Heading>
           <Flex>
             <Content>
+              <h4>Fullstack Web developer</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-                doloribus laudantium perspiciatis odit laborum, nobis quis culpa
-                porro accusantium odio facilis consequuntur hic inventore autem,
-                quidem nemo officia. Possimus, tempora?
+                Hey, I'm Sanchit Bhadgal, a full-stack web developer. I like to
+                create and design things that you see over internet. I have a
+                working knowledge of various web techonologies such as
+                <strong>
+                  {" "}
+                  SASS / JavaScript / React / Redux / Styled Components / Django
+                  / Firebase
+                </strong>
+                .
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-                doloribus laudantium perspiciatis odit laborum, nobis quis culpa
-                porro accusantium odio facilis consequuntur hic inventore autem,
-                quidem nemo officia. Possimus, tempora?
+                I love spending time in fixing little details and optimizing
+                website designs and performance. I am still a learner trying to
+                grasp various things that come my way.
               </p>
-              <ButtonLink style={{ marginTop: "3rem" }}>Resume</ButtonLink>
-              <Links />
+              {resume && (
+                <ButtonLink
+                  target="blank"
+                  href={resume}
+                  style={{ marginTop: "3rem" }}
+                >
+                  Resume
+                </ButtonLink>
+              )}
+              <Links data={socialLinks} />
             </Content>
             <ImageContainer>
               <img src={Profile} alt="" />

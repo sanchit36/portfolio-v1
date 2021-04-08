@@ -1,4 +1,5 @@
 import React from "react";
+import { socialLinks } from "../../data";
 import { Container } from "../../globalStyles";
 import Links from "../Links/Links";
 import { FooterContainer } from "./Footer.styles";
@@ -8,7 +9,7 @@ const Footer = () => {
     <FooterContainer>
       <Container>
         <p>Designed and Developed by Sanchit Bhadgal</p>
-        <Links />
+        <Links data={socialLinks} />
       </Container>
     </FooterContainer>
   );

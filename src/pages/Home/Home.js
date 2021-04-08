@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import About from "../../components/sections/About/About";
 import Banner from "../../components/sections/Banner/Banner";
-import CTA from "../../components/sections/CTA/CTA";
+import Contact from "../../components/sections/Contact/Contact";
 import ProjectList from "../../components/sections/ProjectList/ProjectList";
 import { db } from "../../firebase";
 
@@ -29,7 +29,7 @@ const Home = () => {
 
       <ProjectList loading={loading} projects={projects} />
 
-      <CTA />
+      <Contact />
     </React.Fragment>
   );
 };

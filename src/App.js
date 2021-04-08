@@ -7,7 +7,9 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyles />
-      <Home />
+      <main>
+        <Home />
+      </main>
       <Footer />
     </React.Fragment>
   );
