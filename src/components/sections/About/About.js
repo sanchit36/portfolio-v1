@@ -17,10 +17,10 @@ const About = ({ about }) => {
           <Flex>
             <Content>
               <ReactMarkdown>{about.content}</ReactMarkdown>
-              {about.resume && (
+              {about.resume_url && (
                 <ButtonLink
                   target="blank"
-                  href={about.resume}
+                  href={about.resume_url}
                   style={{ marginTop: "3rem" }}
                 >
                   Resume
