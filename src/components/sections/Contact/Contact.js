@@ -1,11 +1,12 @@
 import { Circle } from "better-react-spinkit";
 import React, { useState } from "react";
-import firebase, { db } from "../../../firebase";
+import instance from "../../../axios";
 import { Container, DARKBG, Section } from "../../../globalStyles";
 import { Button } from "../../Button/Button.styles";
 import { Form } from "./Contact.styles";
 
 const Contact = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
@@ -14,21 +15,24 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
-    db.collection("contact")
-      .add({
+    instance
+      .post("contact", {
+        name,
         email,
         message,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(() => {
         setSending(false);
         setUserMsg("Thanks for contacting");
+        setName("");
         setEmail("");
         setMessage("");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error.message);
         setSending(false);
         setUserMsg("Something went wrong try again");
+        setName("");
         setEmail("");
         setMessage("");
       });
@@ -42,6 +46,13 @@ const Contact = () => {
         <Container style={{ textAlign: "center" }}>
           <h2 style={{ marginBottom: "2rem" }}>Get in Touch</h2>
           <Form onSubmit={handleSubmit}>
+            <input
+              type="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              required
+            />
             <input
               type="email"
               value={email}

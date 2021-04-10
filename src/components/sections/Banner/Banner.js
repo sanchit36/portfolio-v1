@@ -4,29 +4,25 @@ import { ButtonGroup, ButtonLink } from "../../Button/Button.styles";
 import { Center, Content, Para, SubTitle } from "./Banner.styles";
 import Typed from "react-typed";
 
-const Banner = () => {
+const Banner = ({ intro }) => {
   return (
     <React.Fragment>
       <SectionCenter>
         <Center>
           <Para>Hey, my name is</Para>
-          <h1>Sanchit Bhadgal</h1>
+          <h1>{intro.name}</h1>
 
           <SubTitle>
             {"< "}
             <Typed
-              strings={["Developer", "Student", "Learner"]}
+              strings={intro.roles.map((role) => role.name)}
               typeSpeed={40}
               backSpeed={50}
               cursorChar={" />"}
               loop
             />
           </SubTitle>
-          <Content>
-            I'm an India-based web developer who loves to build and design
-            elegant user experiences. currently pursuing my bachelor's degree in
-            CSE and learning something new daily.
-          </Content>
+          <Content>{intro.content}</Content>
           <ButtonGroup>
             <ButtonLink href="#work">My Work</ButtonLink>
           </ButtonGroup>

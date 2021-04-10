@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PRIMARY, SECONDARY } from "../../../globalStyles";
+import { PRIMARY, SECONDARY } from "../../globalStyles";
 
 export const ParaPrimary = styled.p`
   margin-bottom: 0.5rem;
