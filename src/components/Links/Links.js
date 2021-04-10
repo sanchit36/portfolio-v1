@@ -12,8 +12,8 @@ const Links = () => {
   return (
     <React.Fragment>
       <LinksContainer>
-        {state.map(({ id, icon, url }) => (
-          <a key={id} target="blank" href={url}>
+        {state.map(({ id, icon, link }) => (
+          <a key={id} target="blank" href={link}>
             <i className={`fab ${icon}`} />
           </a>
         ))}
